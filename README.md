@@ -1,4 +1,4 @@
-This assignment serves to reinforce JavsScript syntax, functions, and some mathematical operators and sequences.
+This assignment serves to reinforce JavaScript syntax, functions, and some mathematical operators and sequences.
 
 ## Objectives
 
