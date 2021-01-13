@@ -33,6 +33,11 @@ function doSomethingCool() {
 
 // Put your answer below -------------------------
 
+let greeting = (name) => {
+  console.log("Something Cool!");
+};
+
+greeting();
 
 // -----------------------------------------------
 
@@ -47,12 +52,15 @@ function doSomethingCool() {
 
 function sayHi() {
   alert("Hello, World!");
-}
+};
 
-setTimeout(sayHi, 2000);
+// setTimeout(sayHi, 2000);
 
 // Put your answer below -------------------------
 
+setTimeout(function () {
+  alert("Hello, World!");
+}, 2000);
 
 // -----------------------------------------------
 
@@ -83,6 +91,7 @@ console.log("The letter is", letter);
 
 // Put your answer below -------------------------
 
+// The answer is [c]: z then y. The reason that z comes first is that variables have a prioritized scope over functions proper, which is what setTimeout is. Note that when I tested by changing it to an anonymous function only, without setTimeout being applied, it prioritized y over z.
 
 // -----------------------------------------------
 
@@ -105,7 +114,9 @@ var reverseStr = function(str) {
 
 // Put your answer below -------------------------
 
+var reverseStr = (str) => (((str.split("")).reverse()).join(""));
 
+console.log(reverseStr("Lelelele"));
 
 // -----------------------------------------------
 
@@ -140,7 +151,16 @@ var spanishColor = function(colorName) {
 
 // Put your answer below -------------------------
 
-
+var spanishColor = function(colorName) {
+  var colorName = {
+  "rojo": "#ff0000",
+  "blanco": "#ffffff",
+  "azul": "#0000ff",
+  "verde": "#00ff00",
+  "negro": "#000000"
+  };
+  console.log(colorName["rojo"]); //for example
+}();
 
 // -----------------------------------------------
 
@@ -158,6 +178,8 @@ var foo = "bar";
 
 // Put your answer below -------------------------
 
+var foo;
+foo = "bar";
 
 // -----------------------------------------------
 
@@ -182,6 +204,10 @@ var callTenTimes = function(callback) {
 
 // Put your answer below -------------------------
 
+var callTenTimes = function(callback, numberOfTimes) {
+  var range = Array.from(Array(numberOfTimes).keys());
+  range.forEach(callback);
+};
 
 // -----------------------------------------------
 
@@ -198,19 +224,29 @@ var callTenTimes = function(callback) {
 
 // HINT: "global scope"
 
-var score = 0;
-
-var increaseScore = function() {
-  score++;
-};
-
-var decreaseScore = function() {
-  score--;
-};
+// var score = 0;
+//
+// var increaseScore = function() {
+//   score++;
+// };
+//
+// var decreaseScore = function() {
+//   score--;
+// };
 
 // Put your answer below -------------------------
 
+function game() {
+  var score = 0;
+  var increaseScore = function() {
+    score++;
+  };
+  var decreaseScore = function() {
+    score--;
+  };
+}; //this should work if the game were actually functioning, but in my JavaScript console, it appears I can change any variable, even if it is declared as a const here in the code.
 
+game();
 
 // -----------------------------------------------
 
@@ -223,15 +259,23 @@ var decreaseScore = function() {
 // twoPlusTwo gets set to `undefined`. Refactor
 // the function to make it work.
 
-var addNumbers = function(numberA, numberB) {
-  console.log(numberA + numberB);
-};
-
-var twoPlusTwo = addNumbers(2,2);
+// var addNumbers = function(numberA, numberB) {
+//   console.log(numberA + numberB);
+// };
+//
+// var twoPlusTwo = addNumbers(2,2);
 
 // Put your answer below -------------------------
 
+var addNumbers = function(numberA, numberB) {
+  return numberA + numberB;
+};
 
+var twoPlusTwo = `Two plus two equals ${addNumbers(2,2)}`;
+
+console.log(twoPlusTwo);
+
+//Either example didn't give me "undefined" on the console, but I made this different one anyway.
 
 // -----------------------------------------------
 
@@ -258,7 +302,15 @@ var accelerate = function(amount) {
 
 // Put your answer below -------------------------
 
+//amount is being declared undefined (not NaN in my console) in this scenario because it is not defined within the function before usage. An easy fix is to set the amount value to 1 upon defining the function itself, on the first function line.
+var speed = 0;
 
+var accelerate = function(amount=1) {
+  console.log(amount);
+  speed += amount;
+};
+
+accelerate();
 
 // -----------------------------------------------
 
